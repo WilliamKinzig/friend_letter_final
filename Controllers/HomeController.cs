@@ -1,23 +1,41 @@
 using Microsoft.AspNetCore.Mvc;
+using FriendLetter.Models;
 
+//Tells view() to look in home folder
 namespace FriendLetter.Controllers
 {
-    //Tells view() to look in home folder
-    public class HomeController : Controller
-    {
+      public class HomeController : Controller
+      {
+
         // //http://localhost:5000/home/hello
         // public string Hello() { return "Hello frienddddddddddddddd!"; }
         // //http://localhost:5000/home/goodbye
         // public string Goodbye() { return "Goodbye friendddddddddddddd."; }
 
+        // [Route("/")]
+        // //To be used in our Hello.cshtml with RAZOR view engine
+        // public ActionResult Hello()
+        // {
+        //   LetterVariable myLetterVariable = new LetterVariable();
+        //   myLetterVariable.SetSender("Mitch");
+        //   myLetterVariable.SetRecipient("Jessica");
+        //   return View(myLetterVariable);//@Model.GetRecipient() in Hello.cshtml is equal to myLetterVariable
+        // }
+        [Route("/")]
+        public ActionResult Hello()
+        {
+          LetterVariable myLetterVariable = new LetterVariable();
+          myLetterVariable.SetRecipient("Linaaaaaaaaaaa");
+          myLetterVariable.SetSender("Johnnnnnyyyyy");
+          return View(myLetterVariable);
+        }
+
         //http://localhost:5000/hello
         [Route("/hello")]
-        public string Hello() { return "Hello friend!"; }
+        public string Hello2() { return "Hello friend!"; }
         //http://localhost:5000/goodbye
         [Route("/goodbye")]
         public string Goodbye() { return "Goodbye friend."; }
-
-        // [Produces("text/html")]
 
         //http://localhost:5000/letter
         [Route("/letter")]
@@ -34,5 +52,7 @@ namespace FriendLetter.Controllers
         {
           return View();
         }
+
+
     }
 }
