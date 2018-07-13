@@ -30,6 +30,26 @@ namespace FriendLetter.Controllers
           return View(myLetterVariable);
         }
 
+        [Route("/form")]
+        public ActionResult Form()
+        {
+          return View();
+        }
+
+        [Route("/greeting_card")]
+        public ActionResult greeting_card()
+        {
+          LetterVariable myLetterVariable = new LetterVariable();
+
+          //selects whatever is entered in our form under the name field.
+          myLetterVariable.SetRecipient(Request.Query["recipient"]);
+          myLetterVariable.SetSender(Request.Query["sender"]);
+
+          // The first argument is "Hello". This is the name of the template we want the ActionResult to use when compiling the HTML.
+          return View("Hello", myLetterVariable);
+          // You also see that we never created a file called GreetingCard.cshtml, because by passing the "Hello" argument to the View() method, we were able to reuse a template from another view.
+        }
+
         //http://localhost:5000/hello
         [Route("/hello")]
         public string Hello2() { return "Hello friend!"; }

@@ -1,0 +1,44 @@
+
+<!-- Forms are a very powerful part of programming. Gathering information from the user opens up a world of different website possibilities. -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hello friend!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h1>Fill in your name and your friend's name to create your custom greeting!</h1>
+
+    <!-- action='/greeting_card'   is an attribute of the <form> tag that tells the form where to submit the information stored in the form.  We will set it to a greeting_card.cshtml -->
+
+    <form action='/greeting_card'> <!-- look for this in HomeController.cs -->
+      <div class='form-group'>
+        <label for='sender'>Your name</label>
+
+<!-- Using Forms with MVC   Using Forms with MVC   Using Forms with MVC -->
+
+<!-- Inside of the <form> tags, we need one <label> and one <input> tag for each piece of information we want the user to fill in.  -->
+
+<!-- The <input> tag is what creates the field for the user to type into. It must have 3 attributes set: name, id, and type. -->
+
+<!-- The type attribute has many different possible values for the <input> tag: -->
+<!-- checkboxes to dates, colors, and numbers. We set it to text since we just want a person's name. -->
+        <input id='sender' name='sender' class='form-control' type='text'>
+      </div>
+      <div class='form-group'>
+        <label for='recipient'>Your friend's name</label>
+        <input id='recipient' name='recipient' class='form-control' type='text'>
+      </div>
+      <!-- btn-success, btn-warning, btn-info, and btn-danger -->
+      <button type='submit' class='btn'>Go!</button>
+    </form>
+  </body>
+</html>
+
+<!-- 'form-group' is used on <div>s, wrapping together each pair of <label> and <input> tags. -->
+<!-- 'form-control' is used on the <input> tags. Among other things, it makes the length of the input fields adjust to your screen size. -->
+
+<!-- 'btn' is used on the <button> tag. You can also created colored buttons using these other Bootstrap button classes: btn-success, btn-warning, btn-info, and btn-danger. There are more here on the Bootstrap website. -->
